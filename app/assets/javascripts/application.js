@@ -18,6 +18,9 @@
 //= require_tree .
 
 $( document ).on('turbolinks:load', () => {
+
     $(".dropdown-trigger").dropdown();
     $('.sidenav').sidenav();
+    $('#fade-out-target').fadeOut(4000);
+
 });

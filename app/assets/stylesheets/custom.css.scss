@@ -1,11 +1,18 @@
 @import "materialize";
 
+
+
 body {
+    height: 100%;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 main {
     flex: 1 0 auto;
+}
+.sign-up-form {
+    padding-top: 30px;
 }
