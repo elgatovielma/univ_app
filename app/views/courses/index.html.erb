@@ -15,7 +15,13 @@
           <p><%= course.description %></p>
         </div>
         <div class="card-action">
-          <a href="#">Enroll</a>
+
+          <!--The include? allows you to see if the student has the courrent course in the iteration-->
+          <% if logged_in? && !current_user.courses.include?(course) %>
+          <!--We pass the course as a parameter using course_id-->
+            <%= link_to "Enroll", course_enroll_path(course_id: course.id), method: :post %>
+          <% end %>
+
           <a href="#">Info</a>
         </div>
       </div>

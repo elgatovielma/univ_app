@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+    before_action :require_user
+
     # helper_method allows these methods bieng seen by the views
     helper_method :current_user, :logged_in?
 
@@ -13,6 +15,13 @@ class ApplicationController < ActionController::Base
     def logged_in?
         # The !! makes return the method a boolean
         !!current_user
+    end
+
+    def require_user
+        if !logged_in?
+            flash[:notice] = "You must be logged in to perform that action"
+            redirect_to(login_path)
+        end
     end
 
 end
